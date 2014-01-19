@@ -6,13 +6,11 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    #url(r'^a$', include('livehousemap.livehouse.urls')),
+    url(r'^livehouse/', include('livehouse.urls')),
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
-    (r'^static/$', 'django.views.generic.simple.redirect_to',
-     {'url': '/static/index.html'}),
     (r'^static/*$', 'django.views.static.serve',
      {'document_root': 'static'}),
 )

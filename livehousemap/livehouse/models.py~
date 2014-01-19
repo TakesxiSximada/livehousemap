@@ -1,0 +1,18 @@
+from django.db.models import Model
+from django.db.models.fields import (
+    CharField,
+    FloadField,
+    )
+
+# Create your models here.
+class House(Model):
+    name = CharField(max_length=1024)
+    lat = FloatField()
+    lon = FloadField()
+
+    
+class Landmark(Model):
+    name = CharField(max_length=1024)
+    lat = FloatField()
+    lon = FloadField()
+
