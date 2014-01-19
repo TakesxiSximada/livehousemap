@@ -7,6 +7,9 @@ body > .pure-g > .pure-u-1-6,
 body > .pure-g > .pure-u-5-6 {
   height: 100%;
 }
+body > .pure-g > .pure-u-1-6 input {
+  margin: 0 auto;
+}
 
 #map-canvas {
   width: 100%;

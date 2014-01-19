@@ -7,6 +7,8 @@
     center: new google.maps.LatLng(35.683723, 139.754248) // 皇居
   };
 
+  var markerIcon = 'img/marker.jpg';
+
   function fetch() {
     $.ajax({
       url: '/livehouse/',
@@ -43,7 +45,8 @@
     var marker = new google.maps.Marker({
       position: new google.maps.LatLng(lat, lng),
         map: global.googleMap,
-        title: name
+        title: name,
+        icon: markerIcon
     });
     return marker;
   }   
