@@ -12,11 +12,15 @@ class House(Model):
     name = CharField(max_length=1024)
     lat = FloatField()
     lon = FloatField()
-
     
+    def __unicode__(self):
+        return self.name
+
 class Landmark(Model):
     name = CharField(max_length=1024)
     lat = FloatField()
     lon = FloatField()
     houses = ManyToManyField(House, null=False, blank=True)
 
+    def __unicode__(self):
+        return self.name
