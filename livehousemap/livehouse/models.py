@@ -1,4 +1,7 @@
-from django.db.models import Model
+from django.db.models import (
+    Model,
+    ManyToManyField,
+    )
 from django.db.models.fields import (
     CharField,
     FloatField,
@@ -15,4 +18,5 @@ class Landmark(Model):
     name = CharField(max_length=1024)
     lat = FloatField()
     lon = FloatField()
+    houses = ManyToManyField(House, null=False, blank=True)
 
