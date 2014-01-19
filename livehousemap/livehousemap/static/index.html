@@ -18,9 +18,11 @@
             <div class="pure-u-1-6">
                 <header class="global-header">
                     <h1>ライブハウスの地図的な何か</h1>
-                    <form id="search-form" action="/">
-                        <input type="search" placeholder="検索">
-                        <input type="submit" value="検索"> 
+                    <form id="search-form" class="pure-form pure-form-stacked" action="/">
+                        <fieldset>
+                            <input type="search" placeholder="検索" class="pure-input-rounded">
+                            <button type="submit" class="pure-button pure-button-primary">Search</button>
+                        </fieldset>
                     </form>
                 </header>
             </div>
@@ -28,9 +30,10 @@
                 <div id="map-canvas"></div>
             </div>
         </div>
-        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyADfRk6_l60D9MrlRhGCuY_OVjh7Si5JqQ&sensor=false"></script>
+        <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyADfRk6_l60D9MrlRhGCuY_OVjh7Si5JqQ&sensor=false"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="js/vendor/underscore-min.js"></script>
         <script src="js/main.js"></script>
     </body>
 </html>

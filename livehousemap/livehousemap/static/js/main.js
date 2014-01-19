@@ -1,14 +1,60 @@
+;(function(global, $) {
 
-function initialize() {
+  global.googleMap;
+
   var mapOptions = {
-    center: new google.maps.LatLng(-34.397, 150.644),
-    zoom: 8,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
+    zoom: 12,
+    center: new google.maps.LatLng(35.683723, 139.754248) // 皇居
   };
-  var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-}
 
+  function fetch() {
+    $.ajax({
+      url: '/livehouse/',
+      dataType: 'json',
+      data: {
+        q: ''
+      }
+    })
+    .done(function(data) {
+      console.log(data);
+      parse(data);
+    })
+    .fail(function() {
+      // TODO:
+      alert('データの取得に失敗しました');
+    });
+  }
 
-$(function() {
-  initialize();
-});
+  function parse(data) {
+    var lat;
+    var lng;
+    var name;
+    var landmarks;
+    _.each(data, function(item) {
+      lat = item.lat;
+      lng = item.lng;
+      name = item.name;
+      //landmarks = item.landmarks;
+      addMarker(lat, lng, name);
+    });
+  }
+
+  function addMarker(lat, lng, name) {
+    var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(lat, lng),
+        map: global.googleMap,
+        title: name
+    });
+    return marker;
+  }   
+
+  function initialize() {
+    global.googleMap = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    fetch();
+  }
+
+  $(function() {
+    google.maps.event.addDomListener(window, 'load', initialize);
+  });
+
+})(window, jQuery);
